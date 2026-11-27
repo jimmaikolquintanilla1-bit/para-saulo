@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Saulo ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #f4e9ff, #ffeaf2, #e9e5ff);
+    color: #554064;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    overflow-x: hidden;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.82);
+    max-width: 650px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 12px 40px #b69bc855;
+    border: 2px solid white;
+    position: relative;
+}
+
+.heart {
+    font-size: 55px;
+    animation: latido 1.5s infinite;
+}
+
+h1 {
+    color: #a16ac5;
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: #9b7bab;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #d8b8e9;
+    margin: 25px 0;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.highlight {
+    color: #b46b9c;
+    font-weight: bold;
+}
+
+button {
+    background: #b58ad5;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #9568bd;
+    transform: scale(1.05);
+}
+
+#secret {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8efff;
+    border-radius: 20px;
+    line-height: 1.8;
+    animation: aparecer 0.8s;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #aa91bb;
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floating {
+    position: fixed;
+    color: #c49cde;
+    animation: flotar 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 0.7; }
+    to {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="heart">♡</div>
+
+    <p class="subtitle">Una pequeña página hecha con mucho cariño...</p>
+
+    <h1>Para Saulo</h1>
+
+    <p class="subtitle">Mi persona especial ♡</p>
+
+    <hr>
+
+    <div class="message">
+        No sé si estas palabras sean suficientes
+        para explicarte todo lo que siento,
+        pero quería hacer algo diferente
+        para recordarte lo importante que eres para mí.
+
+        <br><br>
+
+        Gracias por llegar a mi vida,
+        por tus palabras, por tus ocurrencias
+        y por esos pequeños momentos
+        que terminan significando muchísimo.
+
+        <br><br>
+
+        Me gusta tenerte en mis días,
+        poder hablar contigo,
+        reírnos de cualquier tontería
+        y sentir que, incluso en los días difíciles,
+        hay alguien especial con quien compartirlos.
+
+        <br><br>
+
+        <span class="highlight">
+        Saulo, te quiero muchísimo.
+        </span>
+
+        Y aunque a veces no encuentre
+        las palabras exactas para decirlo,
+        espero que nunca dudes
+        de lo bonito que es para mí tenerte.
+    </div>
+
+    <hr>
+
+    <button onclick="mostrarMensaje()">
+        Tengo algo más que decirte ♡
+    </button>
+
+    <div id="secret">
+        <h2>Un pequeño secreto 💌</h2>
+
+        Si pudiera guardar un momento
+        para volver a vivirlo,
+        elegiría uno de esos momentos
+        en los que simplemente estoy contigo.
+
+        <br><br>
+
+        No necesito que todo sea perfecto.
+        Me basta con seguir compartiendo
+        cosas bonitas contigo,
+        poquito a poquito.
+
+        <br><br>
+
+        <strong>
+        Te quiero hoy, mañana
+        y en todos esos días
+        que todavía nos quedan por vivir. ♡
+        </strong>
+    </div>
+
+    <footer>
+        Hecho por mí, especialmente para ti.
+        <br>
+        Con mucho amor ♡
+    </footer>
+
+</div>
+
+<script>
+function mostrarMensaje() {
+    const mensaje = document.getElementById("secret");
+
+    if (mensaje.style.display === "block") {
+        mensaje.style.display = "none";
+    } else {
+        mensaje.style.display = "block";
+    }
+}
+
+// Pequeños corazones flotando
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.className = "floating";
+    corazon.textContent = Math.random() > 0.5 ? "♡" : "✦";
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (15 + Math.random() * 20) + "px";
+    corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 10000);
+}
+
+setInterval(crearCorazon, 700);
+</script>
+
+</body>
+</html>
